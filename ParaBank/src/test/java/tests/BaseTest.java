@@ -6,14 +6,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import pages.LandingPage;
 
 public class BaseTest {
     public WebDriver driver;
+    public LandingPage landingPage;
 
     @BeforeSuite
     public void suiteSetup(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        landingPage = new LandingPage(driver);
     }
     @BeforeMethod
     public void testSetup(){
