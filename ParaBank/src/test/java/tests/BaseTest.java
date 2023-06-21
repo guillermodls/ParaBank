@@ -7,16 +7,19 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import pages.LandingPage;
+import pages.RegistrationPage;
 
 public class BaseTest {
     public WebDriver driver;
     public LandingPage landingPage;
+    public RegistrationPage registrationPage;
 
     @BeforeSuite
     public void suiteSetup(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         landingPage = new LandingPage(driver);
+        registrationPage = new RegistrationPage(driver);
     }
     @BeforeMethod
     public void testSetup(){
