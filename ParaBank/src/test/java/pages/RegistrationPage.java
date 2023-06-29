@@ -1,9 +1,11 @@
 package pages;
 
+import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.Constants;
+import utils.Variables;
 
 public class RegistrationPage extends BasePage {
     @FindBy (id = "customer.firstName")
@@ -35,18 +37,18 @@ public class RegistrationPage extends BasePage {
         super(remoteDriver);
     }
 
-    public void successfullyEnterRegistrationInformation() {
-        firstNameField.sendKeys(Constants.CLIENT_FIRST_NAME);
-        lastNameField.sendKeys(Constants.CLIENT_LAST_NAME);
-        streetField.sendKeys(Constants.CLIENT_STREET);
-        cityField.sendKeys(Constants.CLIENT_CITY);
-        stateField.sendKeys(Constants.CLIENT_STATE);
-        zipCodeField.sendKeys(Constants.CLIENT_ZIP);
-        phoneNumberField.sendKeys(Constants.CLIENT_PHONE);
-        ssnField.sendKeys(Constants.CLIENT_SSN);
-        usernameField.sendKeys(Constants.CLIENT_USERNAME);
-        passwordField.sendKeys(Constants.CLIENT_PWD);
-        confirmPwdField.sendKeys(Constants.CLIENT_PWD);
+    public void successfullyEnterRegistrationInformation(String firstName,String lastName,String address,String zipCode,String city,String state,String ssn,String phoneNumber,String username,String password) {
+        firstNameField.sendKeys(firstName);
+        lastNameField.sendKeys(lastName);
+        streetField.sendKeys(address);
+        cityField.sendKeys(city);
+        stateField.sendKeys(state);
+        zipCodeField.sendKeys(zipCode);
+        phoneNumberField.sendKeys(phoneNumber);
+        ssnField.sendKeys(ssn);
+        usernameField.sendKeys(username);
+        passwordField.sendKeys(password);
+        confirmPwdField.sendKeys(password);
     }
 
     public void clickRegisterButton(){
