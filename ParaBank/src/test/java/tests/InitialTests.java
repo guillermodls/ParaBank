@@ -20,6 +20,22 @@ public class InitialTests extends BaseTest {
         registrationPage.successfullyEnterRegistrationInformation(newFirstName,newLastName,newAddress,newZip,newCity,newState,newSsn,newPhone,newUsername,newPwd);
         registrationPage.clickRegisterButton();
         welcomePage.verifyWelcomeMessage(newUsername);
+    }
+    @Test
+    public void unsuccessfulRegister() {
+        landingPage.clickOnRegisterButton();
+        registrationPage.clickRegisterButton();
+        registrationPage.verifyFirstNameError();
+        registrationPage.verifyLastNameError();
+        registrationPage.verifyAddressError();
+        registrationPage.verifyCityError();
+        registrationPage.verifyStateError();
+        registrationPage.verifyZipCodeError();
+        registrationPage.verifySsnError();
+        registrationPage.verifyUsernameError();
+        registrationPage.verifyPwdError();
+        registrationPage.verifyPwdConfError();
+
 
     }
 }
